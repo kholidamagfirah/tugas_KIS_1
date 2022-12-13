@@ -33,14 +33,13 @@ def create(request):
 
 
 def index(request):
-    db = Post.objects.all()
+    posts = Post.objects.all()
+
     context = {
-        'title': 'Blog',
-        'heading': 'Blog',
-        'subheading': 'postingan',
-        'post': db,
+        'page_title': 'Semua Post',
+        'posts': posts,
     }
-    return render(request, 'index.html', context)
+    return render(request, 'index_blog.html', context)
 
 
 def about(request):
