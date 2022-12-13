@@ -1,11 +1,25 @@
-from turtle import title
-from unittest.util import _MAX_LENGTH
+
 from django.db import models
 
-class Post(models.Model):
-    title = models.CharField(max_length=255)
-    body = models.TextField()
+# Create your models here.
 
+
+class Post(models.Model):
+    judul = models.CharField(max_length=100)
+    body = models.TextField()
+    author = models.CharField(max_length=100)
+
+    LIST_CATEGORY = (
+        ('Jurnal', 'jurnal'),
+        ('Berita', 'berita'),
+        ('Gosip', 'gosip'),
+    )
+
+    category = models.CharField(
+        max_length=100,
+        choices=LIST_CATEGORY,
+        default='jurnal',
+    )
 
     def __str__(self):
-        return "{}".format(self.title)
+        return "{}.{}".format(self.id, self.judul)

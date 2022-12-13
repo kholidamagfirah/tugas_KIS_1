@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="{% url "index"  %}" title="home">home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url "blog:about" %}" title="" >blog</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="" >about</a>
-        </li>
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}
+	{{page_title}}
+{% endblock title %}
+
+{% block contents %}
+	<h1>{{page_title}}</h1>
+{% endblock contents %}
